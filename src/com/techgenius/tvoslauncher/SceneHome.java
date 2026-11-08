@@ -1072,9 +1072,9 @@ final class SceneHome {
         dockBox.setPadding(padH, padV, padH, padV);
 
         MainActivity.LiquidGlass dockGlass = new MainActivity.LiquidGlass(
-                dp(23), 0x541E141C, host.glassSource, host.screenW, host.screenH, host.unit);
-        dockGlass.lens = dp(10);
-        dockGlass.rimStrength = 0.38f;
+                Math.max(dp(32), tileSize * 0.28f), 0x14FFFFFF, host.glassSource, host.screenW, host.screenH, host.unit);
+        dockGlass.lens = dp(14);
+        dockGlass.rimStrength = 0.40f;
         dockBox.setBackground(dockGlass);
 
         dockContainer.addView(dockBox, new LinearLayout.LayoutParams(
@@ -1083,7 +1083,7 @@ final class SceneHome {
         FrameLayout.LayoutParams dlp = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,
                 Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-        dlp.bottomMargin = dp(14);
+        dlp.bottomMargin = dp(36);
         overlay.addView(dockContainer, dlp);
     }
 

@@ -262,8 +262,8 @@ public class MainActivity extends Activity {
         // Apple tvOS style geometry: slightly larger app cards and rounder squircle-like corners
         // for both app icons (~16% of card width) and the frosted glass dock, with symmetrical
         // horizontal and vertical padding so focused edge cards never crowd the dock rim.
-        dockOuter = dp(18);
-        dockInset = dp(24);
+        dockOuter = dp(24);
+        dockInset = dp(32);
         side = dockOuter + dockInset;
         gap = dp(18);
         tileW = (screenW - 2 * side - (COLS - 1) * gap) / COLS;
@@ -271,7 +271,7 @@ public class MainActivity extends Activity {
         labelH = dp(30);
         radius = Math.round(tileW * 0.16f);
         shelfH = (int) (screenH * 0.72f);
-        dockPadV = dp(19);
+        dockPadV = dp(28);
 
         Clicks.init(this);
         // Startup: the app list (package manager, banners, icon colours) and the wallpaper are
@@ -916,7 +916,7 @@ public class MainActivity extends Activity {
         // last dock cards have symmetrical left/right and top/bottom margins inside the dock rim.
         int focusGrowX = Math.round(tileW * (FOCUS_SCALE - 1f) / 2f);
         int focusGrowY = Math.round(tileH * (FOCUS_SCALE - 1f) / 2f);
-        int focusedRimMargin = dp(11);
+        int focusedRimMargin = dp(14);
         int dockPadH = focusGrowX + focusedRimMargin;
         int dockPadVScaled = focusGrowY + focusedRimMargin;
         currentDockCols = COLS;
@@ -1400,15 +1400,15 @@ public class MainActivity extends Activity {
     }
 
     int dockGapBelow() {
-        return dp(20);
+        return dp(28);
     }
 
     /** Frosted glass dock (tvOS): lush rounded corner radius, translucent fill, sheen and rim. */
     Drawable dockBackground() {
-        float dockRad = Math.max(dp(24), radius * 1.65f);
+        float dockRad = Math.max(dp(32), radius * 1.9f);
         LiquidGlass g = new LiquidGlass(dockRad, 0x14FFFFFF, glassSource, screenW, screenH, unit);
-        g.lens = dp(12);
-        g.rimStrength = 0.28f;
+        g.lens = dp(16);
+        g.rimStrength = 0.32f;
         return g;
     }
 
